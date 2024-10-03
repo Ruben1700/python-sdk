@@ -2,6 +2,8 @@ from signaturit_sdk.resources.connection import Connection
 from signaturit_sdk.resources.parser import Parser
 
 class SignaturitClient:
+    CREDITS_URL = '/v3/credits.json'
+
     BRANDINGS_URL = '/v3/brandings.json'
     BRANDINGS_ID_URL = '/v3/brandings/%s.json'
 
@@ -53,6 +55,16 @@ class SignaturitClient:
     def __init__(self, token, production=False):
         self.token = token
         self.production = production
+
+    def get_credits(self):
+        """
+        Get all account credits
+        """
+        connection = Connection(self.token)
+
+        connection.set_url(self.production, self.CREDITS_URL)
+
+        return connection.get_request()
 
     def get_signatures(self, limit=100, offset=0, conditions={}):
         """
