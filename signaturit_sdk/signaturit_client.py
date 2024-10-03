@@ -2,7 +2,7 @@ from signaturit_sdk.resources.connection import Connection
 from signaturit_sdk.resources.parser import Parser
 
 class SignaturitClient:
-    CREDITS_URL = '/v3/credits.json'
+    CREDITS_URL = '/v3/account/credits.json'
 
     BRANDINGS_URL = '/v3/brandings.json'
     BRANDINGS_ID_URL = '/v3/brandings/%s.json'
